@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>신림역점 월간 리포트 (4.7~6.9)</title>
+<title>신림역점 월간 리포트 (9.1-9.30)</title>
+<style>는 그대로 복사해서 쓴다 (수정 금지).
+  ▸ <body> 안의 블록들은 "필요한 섹션만 골라" 복붙해서 데이터로 채운다.
+  ▸ 블록 종류: [요약카드] [기본섹션] [이미지섹션] [1등뱃지] [순위변동표] [링크목록] [다음달계획]
+  ▸ 색: navy 헤더 + orange(--brand) 강조 + green(--ok) 1등.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{지점}} 월간 리포트 ({{기간}})</title>
 <style>
   :root{
     --ink:#1c2230; --sub:#6b7280; --line:#e7e9ee; --bg:#f5f6f9;
@@ -36,6 +46,16 @@
   .rank-badges .rb{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:14px;color:var(--ok);background:var(--ok-soft);border:1px solid #bfe8d3;padding:7px 13px;border-radius:10px}
   .rank-badges .rb .one{background:var(--ok);color:#fff;border-radius:6px;font-size:11px;padding:1px 7px}
 
+  table.rank{width:100%;border-collapse:collapse;margin-top:6px;font-size:13.5px}
+  table.rank th{background:#f4f6f9;color:#46506a;font-weight:700;text-align:left;padding:9px 12px;border-bottom:2px solid var(--line)}
+  table.rank td{padding:9px 12px;border-bottom:1px solid var(--line)}
+  table.rank td.kw{font-weight:700;color:var(--navy)}
+  table.rank .arrow{color:var(--sub)}
+  table.rank .now{font-weight:800}
+  table.rank .now.first{color:var(--ok)}
+  table.rank .now.up{color:var(--brand)}
+  table.rank tr:last-child td{border-bottom:none}
+
   ul.links{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:8px}
   ul.links li{display:flex;align-items:center;gap:10px;background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:9px 14px;font-size:13.5px}
   ul.links li::before{content:"▸";color:var(--brand);font-weight:800}
@@ -44,6 +64,7 @@
 
   .imgrow{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
   .imgrow.one{grid-template-columns:1fr;max-width:460px}
+  .imgrow.three{grid-template-columns:repeat(3,1fr)}
   figure{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fafbfc}
   figure img{width:100%;display:block}
   figcaption{font-size:12.5px;color:var(--sub);padding:8px 12px;border-top:1px solid var(--line);background:#fff}
@@ -52,13 +73,13 @@
   .plan .row .k{flex:0 0 96px;font-weight:700;color:var(--navy)}
   .plan .row .v{color:#374151}
   footer{text-align:center;color:var(--sub);font-size:13px;margin-top:30px}
-  @media(max-width:640px){.summary{grid-template-columns:repeat(2,1fr)}.imgrow{grid-template-columns:1fr}}
+  @media(max-width:640px){.summary{grid-template-columns:repeat(2,1fr)}.imgrow,.imgrow.three{grid-template-columns:1fr}}
   @media print{
     body{background:#fff}
     .wrap{padding-bottom:0}
     section{break-inside:avoid;box-shadow:none}
     header{break-inside:avoid;border-radius:0}
-    figure,ul.links li{break-inside:avoid}
+    figure,ul.links li,table.rank tr{break-inside:avoid}
   }
 </style>
 </head>
@@ -66,93 +87,35 @@
 <header>
   <span class="badge-top">YOUNG PLACE · 신림역점</span>
   <h1>젊은공간 신림역점 월간 운영 리포트</h1>
-  <div class="period">2026. 4. 7 ~ 6. 9 &nbsp;|&nbsp; 네이버 플레이스 · 블로그 통합</div>
-  <div class="summary">
-    <div class="card"><div class="num">9<small>건</small></div><div class="lbl">예약리뷰</div><div class="svc">계약 6 + 서비스 3</div></div>
-    <div class="card"><div class="num">10<small>건</small></div><div class="lbl">블로그리뷰</div><div class="svc">계약 8 + 서비스 2</div></div>
-    <div class="card"><div class="num">3<small>건</small></div><div class="lbl">클립</div><div class="svc">숏폼</div></div>
-    <div class="card"><div class="num">3<small>건</small></div><div class="lbl">소식</div><div class="svc">플레이스 활성</div></div>
-  </div>
+  <div class="period">2026. 9. 1 ~ 9. 30 &nbsp;|&nbsp; 네이버 플레이스 · 블로그 · 클립 통합</div>
+  <div class="summary"><div class="card"><div class="num">4<small>건</small></div><div class="lbl">블로그리뷰</div><div class="svc">계약 4건 완료</div></div><div class="card"><div class="num">4<small>건</small></div><div class="lbl">예약리뷰</div><div class="svc">계약 3 + 서비스 1</div></div><div class="card"><div class="num">2<small>건</small></div><div class="lbl">클립</div><div class="svc">계약 1 + 서비스 1</div></div></div>
 </header>
-
 <div class="wrap">
-
-  <section>
-    <div class="sec-head"><span class="dot"></span><h2>플레이스 셋팅 완료</h2><span class="count">기본 셋팅 완료</span></div>
-    <p class="note">플레이스 기본 셋팅을 완료해 노출·전환의 기반을 마련했습니다.</p>
-    <div class="imgrow one">
-      <figure><img src="images/p_setup.png" alt="플레이스 셋팅"><figcaption>플레이스 셋팅 완료 화면</figcaption></figure>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head"><span class="dot"></span><h2>사진 촬영</h2><span class="count">사진작가 서비스</span></div>
-    <p class="note"><b>전문 사진작가 촬영(5/20)</b>으로 플레이스 사진을 새로 업로드했습니다. <span class="pill-ok">서비스 제공</span></p>
-  </section>
-
-  <section>
-    <div class="sec-head"><span class="dot"></span><h2>예약리뷰</h2><span class="count">계약 6건 + 서비스 3건 = 총 9건 완료</span></div>
-    <p class="note">계약 분량 6건을 모두 완료하고, <b>서비스로 3건을 더 진행</b>해 총 9건을 업로드했습니다.</p>
-    <div class="imgrow one">
-      <figure><img src="images/reserve.png" alt="예약리뷰"><figcaption>예약리뷰 업로드 현황</figcaption></figure>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head"><span class="dot"></span><h2>블로그리뷰</h2><span class="count">계약 8건 + 서비스 2건 = 총 10건 완료</span></div>
-    <p class="note">키워드·방문의도에 맞춰 <b>AI가 읽을 수 있는 구조</b>로 리뷰를 설계하고, <b>실제 리뷰어 아이디</b>로 진행했습니다. 계약 8건 완료 + <b>서비스 2건</b>으로 총 10건을 업로드했으며, <b>신림역원룸텔·신림역고시원 상위노출</b>을 견인했습니다.</p>
-    <ul class="links">
-      <li><a href="https://blog.naver.com/santa1592/224299815395" target="_blank">blog.naver.com/santa1592/224299815395</a></li>
-      <li><a href="https://blog.naver.com/2mencar/224280445451" target="_blank">blog.naver.com/2mencar/224280445451</a></li>
-      <li><a href="https://blog.naver.com/emma200909/224280422461" target="_blank">blog.naver.com/emma200909/224280422461</a></li>
-      <li><a href="https://blog.naver.com/julli9900/224272236995" target="_blank">blog.naver.com/julli9900/224272236995</a></li>
-      <li><a href="https://blog.naver.com/1per_rich/224268875781" target="_blank">blog.naver.com/1per_rich/224268875781</a></li>
-      <li><a href="https://blog.naver.com/youngplace3033/224266856395" target="_blank">blog.naver.com/youngplace3033/224266856395</a></li>
-      <li><a href="https://blog.naver.com/mahazero/224302433916" target="_blank">blog.naver.com/mahazero/224302433916</a></li>
-      <li><a href="https://blog.naver.com/gkstmdds2/224310468671" target="_blank">blog.naver.com/gkstmdds2/224310468671</a></li>
-    </ul>
-    <div class="imgrow">
-      <figure><img src="images/blog1.png" alt="블로그리뷰"><figcaption>블로그리뷰 ①</figcaption></figure>
-      <figure><img src="images/blog2.png" alt="블로그리뷰"><figcaption>블로그리뷰 ②</figcaption></figure>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head"><span class="dot"></span><h2>클립</h2><span class="count">3건</span></div>
-    <p class="note">숏폼 클립 3건을 업로드해 영상 노출 영역을 확보했습니다.</p>
-  </section>
-
-  <section>
-    <div class="sec-head"><span class="dot"></span><h2>소식</h2><span class="count">3건</span></div>
-    <p class="note">플레이스 소식 3건을 발행해 활성도를 높였습니다.</p>
-    <div class="imgrow one">
-      <figure><img src="images/news.png" alt="소식"><figcaption>플레이스 소식 발행</figcaption></figure>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head"><span class="dot"></span><h2>키워드 순위 — 1등 달성</h2><span class="count">신림역원룸텔 · 신림역고시원</span></div>
-    <p class="note">대표 키워드 <b>2종 모두 1위</b>를 달성했습니다.</p>
-    <div class="rank-badges">
-      <span class="rb"><span class="one">1위</span> 신림역원룸텔</span>
-      <span class="rb"><span class="one">1위</span> 신림역고시원</span>
-    </div>
-    <div class="imgrow">
-      <figure><img src="images/kw_roomtel.png" alt="신림역원룸텔 1위"><figcaption>‘신림역원룸텔’ 검색 — <b>1위</b></figcaption></figure>
-      <figure><img src="images/kw_gosiwon.png" alt="신림역고시원 1위"><figcaption>‘신림역고시원’ 검색 — <b>1위</b></figcaption></figure>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head"><span class="dot" style="background:var(--navy)"></span><h2>다음 달 계획</h2></div>
-    <div class="plan">
-      <div class="row"><div class="k">예약리뷰</div><div class="v">6/10, 6/17, 6/24, 7/1, 7/8</div></div>
-      <div class="row"><div class="k">블로그리뷰</div><div class="v">6/10, 6/11, 6/15, 6/18, 6/25, 7/2</div></div>
-      <div class="row"><div class="k">기타</div><div class="v">소식 · 클립 · 플레이스 점검</div></div>
-    </div>
-  </section>
-
-  <footer>YOUNG PLACE 신림역점 · 월간 운영 리포트 (2026. 4. 7 ~ 6. 9)</footer>
+<section>
+  <div class="sec-head"><span class="dot"></span><h2>이번 달 리뷰 링크</h2><span class="count">총 10건</span></div>
+  <p class="note">이번 달 진행한 리뷰·클립입니다. 누르면 바로 확인하실 수 있습니다.</p>
+  <h3 style="font-size:15px;margin:14px 0 6px">블로그리뷰 4건</h3><ul class="links"><li><a href="https://blog.naver.com/namwonsabu/224400415454" target="_blank">블로그리뷰 1</a></li><li><a href="https://blog.naver.com/budlgoal/224407874731" target="_blank">블로그리뷰 2</a></li><li><a href="https://blog.naver.com/homez179/224415622960" target="_blank">블로그리뷰 3</a></li><li><a href="https://blog.naver.com/dicetownboardgame/224419341436" target="_blank">블로그리뷰 4</a></li></ul><h3 style="font-size:15px;margin:14px 0 6px">예약리뷰 4건</h3><div class="imgrow"><figure><a href="https://naver.me/50B7RXH2" target="_blank"><img src="images/예약리뷰_1.png" alt=""></a><figcaption>예약리뷰 1 · 잉딩11</figcaption></figure><figure><a href="https://naver.me/Fc6i29K5" target="_blank"><img src="images/예약리뷰_2.png" alt=""></a><figcaption>예약리뷰 2 · db****</figcaption></figure><figure><a href="https://naver.me/551dvKfk" target="_blank"><img src="images/예약리뷰_3.png" alt=""></a><figcaption>예약리뷰 3 · 쿄쿙쿄리쿙쿙산쏙</figcaption></figure><figure><a href="https://naver.me/F2LusUD4" target="_blank"><img src="images/예약리뷰_4.png" alt=""></a><figcaption>예약리뷰 4 · 인생은랄라룰루</figcaption></figure></div><h3 style="font-size:15px;margin:14px 0 6px">클립 2건</h3><ul class="links"><li><a href="https://m.blog.naver.com/bomnalunni/clip/16153363" target="_blank">클립 1</a></li><li><a href="https://m.blog.naver.com/yamyam_zip_/clip/16164807" target="_blank">클립 2</a></li></ul>
+</section><section>
+  <div class="sec-head"><span class="dot"></span><h2>키워드 순위 — 1등 달성</h2><span class="count">플레이스 순위</span></div>
+  <p class="note"><b>신림역원룸텔 1위</b> 달성. 현재 순위는 캡처 시점(2026-10-05 19:40) 네이버 플레이스 검색(광고 제외) 기준입니다.</p>
+  <div class="rank-badges"><span class="rb"><span class="one">1위</span> 신림역원룸텔</span></div>
+  <table class="rank"><thead><tr><th>키워드</th><th>지난 기간(추적)</th><th>현재(캡처 기준)</th></tr></thead><tbody><tr><td class="kw">신림역고시원</td><td>1위 <span class="arrow">→</span> 3위</td><td class="now ">2위</td></tr><tr><td class="kw">신림역원룸텔</td><td>1위 <span class="arrow">→</span> 1위</td><td class="now first">1위</td></tr></tbody></table>
+  <div class="imgrow "><figure><img src="images/신림역고시원_플레이스_2위.png" alt=""><figcaption>‘신림역고시원’ 검색 — <b>2위</b></figcaption></figure><figure><img src="images/신림역원룸텔_플레이스_1위.png" alt=""><figcaption>‘신림역원룸텔’ 검색 — <b>1위</b></figcaption></figure></div>
+</section><section>
+  <div class="sec-head"><span class="dot"></span><h2>블로그 노출</h2><span class="count">노출 8건</span></div>
+  <p class="note">네이버 블로그탭 상위 30위 안에 우리 콘텐츠 8건이 노출되고 있습니다.</p>
+  <ul class="links"><li><b>‘신림역고시원’ 2위</b></li><li><b>‘신림역원룸텔’ 2위</b> 외 6건</li></ul>
+  <div class="imgrow "><figure><img src="images/신림역고시원_블로그_2위.png" alt=""><figcaption>‘신림역고시원’ 검색 — <b>2위</b></figcaption></figure><figure><img src="images/신림역원룸텔_블로그_2위_외6건.png" alt=""><figcaption>‘신림역원룸텔’ 검색 — <b>2위 외 6건</b></figcaption></figure><figure><img src="images/신림역원룸텔_블로그_2위_외6건_2화면.png" alt=""><figcaption>‘신림역원룸텔’ 검색 — <b>2위 외 6건</b></figcaption></figure><figure><img src="images/신림역원룸텔_블로그_2위_외6건_3화면.png" alt=""><figcaption>‘신림역원룸텔’ 검색 — <b>2위 외 6건</b></figcaption></figure></div>
+</section><section>
+  <div class="sec-head"><span class="dot"></span><h2>클립 노출</h2><span class="count">노출 5건</span></div>
+  <p class="note">네이버 클립탭 상위 30위 안에 우리 콘텐츠 5건이 노출되고 있습니다.</p>
+  <ul class="links"><li><b>‘신림역고시원’ 1위</b> 외 4건</li><li><b>‘신림역원룸텔’ 1위</b> 외 4건</li></ul>
+  <div class="imgrow three"><figure><img src="images/신림역고시원_클립_1위_외4건.png" alt=""><figcaption>‘신림역고시원’ 검색 — <b>1위 외 4건</b></figcaption></figure><figure><img src="images/신림역고시원_클립_1위_외4건_2화면.png" alt=""><figcaption>‘신림역고시원’ 검색 — <b>1위 외 4건</b></figcaption></figure><figure><img src="images/신림역고시원_클립_1위_외4건_3화면.png" alt=""><figcaption>‘신림역고시원’ 검색 — <b>1위 외 4건</b></figcaption></figure><figure><img src="images/신림역원룸텔_클립_1위_외4건.png" alt=""><figcaption>‘신림역원룸텔’ 검색 — <b>1위 외 4건</b></figcaption></figure><figure><img src="images/신림역원룸텔_클립_1위_외4건_2화면.png" alt=""><figcaption>‘신림역원룸텔’ 검색 — <b>1위 외 4건</b></figcaption></figure><figure><img src="images/신림역원룸텔_클립_1위_외4건_3화면.png" alt=""><figcaption>‘신림역원룸텔’ 검색 — <b>1위 외 4건</b></figcaption></figure></div>
+</section><section>
+  <div class="sec-head"><span class="dot" style="background:var(--navy)"></span><h2>다음 달 계획</h2></div>
+  <div class="plan"><div class="row"><div class="k">계획</div><div class="v">예약리뷰 · 블로그리뷰 · 클립 · 소식 정기 진행, 키워드 순위 관리</div></div>
+</section>
+<footer>YOUNG PLACE 신림역점 · 월간 운영 리포트 (2026. 9. 1 ~ 9. 30)</footer>
 </div>
 </body>
 </html>
